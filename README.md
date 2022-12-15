@@ -71,5 +71,40 @@ os.system(f"git push -u origin master")
 break
 
 ```
+## Docker file:
+```yaml
+FROM python:3.9
+
+# Install git
+RUN apt-get update && apt-get install -y git
+
+# Create a new directory for the script
+RUN mkdir /app
+
+# Copy the script to the app directory
+COPY clone-repos.py /app/clone-repos.py
+
+# Set the working directory to the app directory
+WORKDIR /app
+
+# Run the script
+CMD ["python", "clone-repos.py"]
+
+```
+This Dockerfile uses the **python:3.9** base image and installs git using the **apt-get package manager**. It then creates a new directory called ***app*** and copies the **clone-repos.py** script to this directory. It sets the working directory to app and runs the clone-repos.py script when the **Docker container** is started. 
+
+To build the Docker image, you can run the following command in a terminal or command prompt:
+```yaml
+docker build -t clone-repos .
+```
+This will build a Docker image called clone-repos using the instructions in the Dockerfile.
+
+
+To run the Docker container, you can use the following command:
+```yaml
+docker run -it clone-repos
+
+```
+This will start the Docker container and run the clone-repos.py script inside the container.
 
  
