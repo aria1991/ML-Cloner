@@ -1,5 +1,24 @@
 # ML-Cloner
 Search through a user's repositories for ML python files and clone them automatically and create new Repo.
+```markdown
++------------+    search for ML   +------------+    clone files   +------------+
+| User       | -------------------> | GitHub    | -------------------> | Local    |
++------------+                    +------------+                    +------------+
+                                                      |
+                                                      | create repository
+                                                      v
+                                             +------------+
+                                             | New Repo   |
+                                             +------------+
+                                                      |
+                                                      | push changes
+                                                      v
+                                             +------------+
+                                             | GitHub     |
+                                             +------------+
+
+```
+
 ### About this method:
 This script uses the **os module** to clone the user's repositories, create a new repository on GitHub, add the files to the repository, commit the changes, and push the code to the new repository. It uses the git command to perform these actions.
 
